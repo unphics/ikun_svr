@@ -1,0 +1,16 @@
+syntax = "proto2";
+
+// import "google/protobuf/descriptor.proto";
+// import "google/protobuf/any.proto";
+// import "google/protobuf/source_context.proto";
+// import "google/protobuf/type.proto";
+
+// import "desc.proto";
+
+package last;
+
+message Users {
+    optional int32 id        = 1 [default = 2];
+    optional string name     = 2 [default = "nname"];
+    optional string title    = 3 [default = "ttitle"];
+}

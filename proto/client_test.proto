@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package client_test;
+
+message protocol_header {
+    string protocol_name = 1;
+}
+
+message req {
+    protocol_header header      = 1;
+    int32           id          = 2;
+    string          name        = 3;
+}
+
+message rsp {
+    protocol_header header      = 1;
+    string          content     = 2;
+    string          desc        = 3;
+}

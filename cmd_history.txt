@@ -1,0 +1,23 @@
+install pre-level gcc:
+    1.安装gcc
+        sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+        sudo apt update
+        sudo apt install gcc-12 g++-12
+    2.然后会遇到问题:libcuda.so.1不是一个符号链接
+        sudo rm /usr/lib/wsl/lib/libcuda.so.1
+        sudo ln -s /path/to/real/libcuda.so.1 /usr/lib/wsl/lib/libcuda.so.1
+    3.将gcc-11和gcc-12添加到update-alternatives中, 并分别分配权重为10和20
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 10
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 20
+    4.选择默认gcc版本
+        sudo update-alternatives --config gcc
+
+
+chmod -R 755 your_directory
+
+gcc编译module:
+    g++ -fmodules-ts -std=c++20 -c mod.cc -o mod.o
+    g++ -fmodules-ts -std=c++20 -c main.cc -o main.o
+    g++ mod.o main.o -o main
+
+sudo apt install ninja-build
